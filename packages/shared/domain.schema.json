@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/tibetan-urine-ai/domain.schema.json",
+  "title": "TibetanUrineAI Domain Schema",
+  "type": "object",
+  "definitions": {
+    "ImageQualityResult": {
+      "type": "object",
+      "required": ["quality_score", "usable", "issues", "recommendations"],
+      "properties": {
+        "quality_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "usable": { "type": "boolean" },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "severity", "message"],
+            "properties": {
+              "type": { "type": "string" },
+              "severity": { "type": "string" },
+              "message": { "type": "string" },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        "recommendations": { "type": "array", "items": { "type": "string" } },
+        "metrics": { "type": "object" },
+        "gemma_review": {
+          "type": "object",
+          "required": ["status", "provider"],
+          "properties": {
+            "status": { "type": "string" },
+            "provider": { "type": "string" },
+            "reason": { "type": "string" },
+            "sample_visible": { "type": "boolean" },
+            "urine_region_complete": { "type": "boolean" },
+            "sample_region_size": { "type": "string" },
+            "background": { "type": "string" },
+            "reflection_risk": { "type": "string" },
+            "blur_risk": { "type": "string" },
+            "collection_quality": { "type": "string" },
+            "confidence": { "type": "string" },
+            "issues": { "type": "array", "items": { "type": "object" } },
+            "recommendations": { "type": "array", "items": { "type": "string" } },
+            "raw_excerpt": { "type": "string" }
+          }
+        },
+        "score_sources": {
+          "type": "object",
+          "required": ["rule_cv_score", "gemma_penalty", "fusion_method"],
+          "properties": {
+            "rule_cv_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "gemma_penalty": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "fusion_method": { "type": "string" }
+          }
+        },
+        "rule_cv_result": {
+          "type": "object",
+          "properties": {
+            "quality_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "usable": { "type": "boolean" },
+            "issues": { "type": "array", "items": { "type": "object" } }
+          }
+        }
+      }
+    },
+    "VisualFeatures": {
+      "type": "object",
+      "required": ["status", "features"],
+      "properties": {
+        "status": { "type": "string" },
+        "summary": { "type": "string" },
+        "recommendations": { "type": "array", "items": { "type": "string" } },
+        "metrics": { "type": "object" },
+        "features": {
+          "type": "object",
+          "properties": {
+            "color": { "$ref": "#/definitions/VisualFeatureItem" },
+            "transparency": { "$ref": "#/definitions/VisualFeatureItem" },
+            "foam": { "$ref": "#/definitions/VisualFeatureItem" },
+            "sediment": { "$ref": "#/definitions/VisualFeatureItem" },
+            "layering": { "$ref": "#/definitions/VisualFeatureItem" }
+          }
+        },
+        "rule_cv_result": { "type": "object" },
+        "gemma_review": {
+          "type": "object",
+          "required": ["status", "provider"],
+          "properties": {
+            "status": { "type": "string" },
+            "provider": { "type": "string" },
+            "reason": { "type": "string" },
+            "features": { "type": "object" },
+            "summary": { "type": "string" },
+            "recommendations": { "type": "array", "items": { "type": "string" } },
+            "raw_excerpt": { "type": "string" }
+          }
+        }
+      }
+    },
+    "VisualFeatureItem": {
+      "type": "object",
+      "required": ["label", "confidence", "evidence"],
+      "properties": {
+        "label": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "evidence": { "type": "string" },
+        "source": { "type": "string" },
+        "metrics": { "type": "object" },
+        "rule_label": { "type": "string" },
+        "gemma_label": { "type": "string" }
+      }
+    },
+    "CollectionContext": {
+      "type": "object",
+      "properties": {
+        "lighting_condition": { "type": ["string", "null"] },
+        "container_type": { "type": ["string", "null"] },
+        "background_type": { "type": ["string", "null"] },
+        "resting_minutes": { "type": ["integer", "null"], "minimum": 0 },
+        "is_morning_sample": { "type": ["boolean", "null"] },
+        "interference_note": { "type": ["string", "null"] }
+      }
+    },
+    "ObservationCreate": {
+      "type": "object",
+      "required": ["case_id", "collection_context"],
+      "properties": {
+        "case_id": { "type": "string" },
+        "image_path": { "type": ["string", "null"] },
+        "collection_context": { "$ref": "#/definitions/CollectionContext" },
+        "symptom_text": { "type": ["string", "null"] }
+      }
+    },
+    "ObservationUpdate": {
+      "type": "object",
+      "properties": {
+        "case_id": { "type": "string" },
+        "image_path": { "type": ["string", "null"] },
+        "collection_context": { "$ref": "#/definitions/CollectionContext" },
+        "symptom_text": { "type": ["string", "null"] }
+      }
+    },
+    "ImageUploadResponse": {
+      "type": "object",
+      "required": ["image_id", "filename", "content_type", "image_path"],
+      "properties": {
+        "image_id": { "type": "string" },
+        "filename": { "type": "string" },
+        "content_type": { "type": "string" },
+        "image_path": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "tm_urine_rule_001",
+    "title": "尿液颜色观察提示",
+    "feature_tags": ["颜色", "深黄色", "透明度"],
+    "symptom_tags": ["口干", "饮水少", "乏力"],
+    "content": "尿液颜色变化需要结合饮水、饮食、采集时间和其他问诊信息综合观察。",
+    "limitations": "不能仅凭颜色作出疾病判断。",
+    "source": "待补充公开资料或专家审核规则",
+    "review_status": "pending_review",
+    "enabled": true
+  }
+]
+

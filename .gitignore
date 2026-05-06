@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+
+# Build outputs
+dist/
+build/
+.next/
+*.tsbuildinfo
+
+# Local runtime data
+/data/
+/uploads/
+/apps/api/data/
+/apps/api/uploads/
+*.sqlite3
+*.db
+
+# Environment
+.env
+.env.local
+
+# Editor and OS
+.DS_Store
+.idea/
+.vscode/
