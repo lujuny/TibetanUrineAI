@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import urineDiagnosisLogo from "../assets/urine-diagnosis-logo.svg";
 
 interface ShellProps {
   activeRoute: string;
@@ -18,7 +19,11 @@ export function Shell({ activeRoute, children }: ShellProps) {
     <div className="app-shell">
       <aside className="sidebar">
         <div className="brand">
-          <span className="brand-mark">藏</span>
+          <img
+            alt="藏医尿诊智能辅助系统标识"
+            className="brand-mark"
+            src={urineDiagnosisLogo}
+          />
           <div>
             <strong>藏医尿诊</strong>
             <span>智能辅助系统</span>

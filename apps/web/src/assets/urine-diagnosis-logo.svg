@@ -1,0 +1,12 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Tibetan urine diagnosis logo</title>
+  <desc id="desc">A diagnostic urine cup with golden liquid and a Tibetan-inspired crest.</desc>
+  <rect width="96" height="96" rx="22" fill="#F7FBF6"/>
+  <rect x="12" y="12" width="72" height="72" rx="18" fill="#173831"/>
+  <path d="M30 30H66L62 72H34L30 30Z" fill="#F7FBF6" fill-opacity="0.94"/>
+  <path d="M34.5 44C39.5 41 44.5 47 49.5 44C54.5 41 58.5 44 61.5 46L59.5 68H36.5L34.5 44Z" fill="#E5B85A"/>
+  <path d="M31 30H65" stroke="#E5B85A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M37 39C40 35 44 35 47 39C50 43 54 43 59 38" stroke="#173831" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M43 23L48 18L53 23L48 28L43 23Z" fill="#E5B85A"/>
+  <path d="M24 24H34M62 24H72M24 72H34M62 72H72" stroke="#E5B85A" stroke-width="3" stroke-linecap="round"/>
+</svg>

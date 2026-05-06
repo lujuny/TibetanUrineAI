@@ -39,14 +39,13 @@ a {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
+  display: block;
   width: 40px;
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 8px;
-  color: #ffd37a;
-  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+  object-fit: cover;
 }
 
 .brand strong,
